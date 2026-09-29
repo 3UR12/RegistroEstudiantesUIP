@@ -4,15 +4,16 @@
 
 **/bin/
 **/obj/
+**/publish/
+**/Publish/
 
 artifacts/
-publish/
-Publish/
 
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+*.pdb
 *.log
 *.tmp
 *.temp

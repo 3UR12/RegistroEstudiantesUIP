@@ -10,6 +10,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
         cmbCarrera.SelectedIndex = 0;
+        ActualizarContador();
     }
 
     private void btnAgregar_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ public partial class MainForm : Form
             estudiante.Nombre,
             estudiante.Carrera);
 
+        ActualizarContador();
         LimpiarFormulario();
     }
 
@@ -52,9 +54,16 @@ public partial class MainForm : Form
         txtId.Focus();
     }
 
+    private void ActualizarContador()
+    {
+        lblContador.Text = $"Registros: {dgvEstudiantes.Rows.Count}";
+    }
+
     private void MostrarEstado(string mensaje, bool esError)
     {
         lblEstado.Text = mensaje;
-        lblEstado.ForeColor = esError ? Color.Firebrick : Color.DarkGreen;
+        lblEstado.ForeColor = esError
+            ? Color.FromArgb(176, 40, 40)
+            : Color.FromArgb(31, 105, 74);
     }
 }

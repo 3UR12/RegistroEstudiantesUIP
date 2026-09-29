@@ -1,55 +1,95 @@
 # Arquitectura
 
-## Objetivo
+## Alcance
 
-Mantener una separación clara entre la interfaz gráfica, las reglas de validación y los datos, sin introducir complejidad innecesaria para el alcance del taller.
+La aplicación registra estudiantes durante una sesión de ejecución. No utiliza base de datos ni archivos de persistencia.
 
-## Componentes
+La solución se divide en tres responsabilidades principales.
 
-### 1. Presentación — `MainForm`
+## Presentación
 
-Responsable de:
+Archivos principales:
 
-- Capturar ID, nombre y carrera.
-- Responder a los eventos de los botones.
-- Mostrar mensajes de estado.
-- Renderizar los registros en el `DataGridView`.
+~~~text
+MainForm.cs
+MainForm.Designer.cs
+~~~
 
-No contiene las reglas principales de registro.
+Responsabilidades:
 
-### 2. Lógica — `RegistroEstudiantesService`
+- capturar ID, nombre y carrera;
+- mostrar mensajes de validación;
+- mostrar los registros en el DataGridView;
+- actualizar el contador visible de registros;
+- responder a los botones Agregar y Limpiar.
 
-Responsable de:
+## Lógica
 
-- Verificar campos obligatorios.
-- Convertir y validar el ID.
-- Validar la longitud mínima del nombre.
-- Evitar IDs duplicados.
-- Mantener la colección de estudiantes durante la ejecución.
+Archivo:
 
-### 3. Dominio — `Estudiante` y `ResultadoRegistro`
+~~~text
+Services/RegistroEstudiantesService.cs
+~~~
 
-`Estudiante` representa un registro válido.
+Responsabilidades:
 
-`ResultadoRegistro` comunica a la interfaz si la operación fue exitosa, el mensaje correspondiente y, cuando aplica, el estudiante creado.
+- validar campos obligatorios;
+- convertir y validar el ID;
+- comprobar que el ID sea mayor que cero;
+- validar el nombre;
+- impedir IDs duplicados;
+- mantener la colección de estudiantes durante la ejecución.
+
+## Modelo
+
+Archivos:
+
+~~~text
+Models/Estudiante.cs
+Models/ResultadoRegistro.cs
+~~~
+
+Estudiante representa un registro válido.
+
+ResultadoRegistro devuelve a la interfaz el estado de la operación, el mensaje correspondiente y el estudiante creado cuando la validación termina correctamente.
 
 ## Flujo
 
-```mermaid
-flowchart LR
-    U[Usuario] --> F[MainForm]
-    F -->|ID, nombre, carrera| S[RegistroEstudiantesService]
-    S -->|valida| M[Estudiante]
-    S -->|ResultadoRegistro| F
-    F --> D[DataGridView]
-```
+~~~text
+Usuario
+  │
+  ▼
+MainForm
+  │  ID / nombre / carrera
+  ▼
+RegistroEstudiantesService
+  │
+  ├── validación
+  ├── control de duplicados
+  └── almacenamiento en memoria
+  │
+  ▼
+ResultadoRegistro
+  │
+  ▼
+MainForm
+  │
+  ├── mensaje
+  └── DataGridView
+~~~
 
-## Persistencia
+## Compilación
 
-No existe base de datos ni archivo permanente. La colección vive en memoria mientras la aplicación está abierta.
+El proyecto tiene como destino net8.0-windows.
 
-Esto es intencional: el desafío académico solicita creación y visualización de registros, no persistencia.
+La configuración Release desactiva símbolos de depuración.
 
-## Relación con Compiladores
+La publicación final utiliza:
 
-La arquitectura de la aplicación es independiente del proceso de construcción. El proyecto C# se compila como ensamblado .NET y luego se publica para Windows, generando un host ejecutable `.exe` junto con las dependencias necesarias según la configuración seleccionada.
+~~~text
+win-x64
+Self-contained / Independiente
+Single file
+~~~
+
+El perfil está versionado en Properties/PublishProfiles/FolderProfile.pubxml.
