@@ -1,163 +1,104 @@
 # RegistroEstudiantesUIP
 
-Aplicación de escritorio para registro temporal de estudiantes, desarrollada en C# con Windows Forms y .NET 8 para el taller práctico de Compiladores de la Universidad Interamericana de Panamá.
+Aplicación de escritorio para registrar estudiantes durante una sesión local. Desarrollada en **C#**, **Windows Forms** y **.NET 8** para el taller práctico de Compiladores de la Universidad Interamericana de Panamá.
 
-## Funcionalidad
+![C#](https://img.shields.io/badge/C%23-.NET%208-512BD4?logo=dotnet&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-win--x64-0078D4?logo=windows11&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-5C2D91?logo=visualstudio&logoColor=white)
 
-La aplicación permite:
+**Autor:** Euris J. Rodríguez V.  
+**Asignatura:** Compiladores  
+**Versión:** v1.0.0
 
-- registrar ID, nombre y carrera;
-- validar campos obligatorios;
-- validar que el ID sea numérico y mayor que cero;
-- impedir IDs duplicados;
-- mostrar los registros en un DataGridView;
-- limpiar el formulario;
-- mostrar mensajes de validación;
-- contar los registros cargados durante la sesión.
+## Funciones
 
-Los datos se mantienen únicamente en memoria. No se utiliza base de datos.
+| Función | Comportamiento |
+|---|---|
+| Registro | ID, nombre y carrera |
+| Validación | Campos obligatorios, ID numérico y nombre mínimo |
+| Duplicados | Impide registrar dos veces el mismo ID |
+| Visualización | Registros mostrados en un DataGridView |
+| Limpieza | Restablece el formulario |
+| Contador | Muestra la cantidad de registros de la sesión |
 
-## Entorno
+> Los datos se mantienen en memoria. Al cerrar la aplicación, los registros se eliminan.
 
-- C#
-- Windows Forms
+## Tecnología
+
+- C# / Windows Forms
 - .NET 8
 - Visual Studio 2022
 - Windows x64
 
-## Entrega académica
-
-Repositorio del proyecto:
-
-https://github.com/3UR12/RegistroEstudiantesUIP
-
-Archivos de entrega de mayor tamaño (video, ejecutable y presentación):
-
-https://github.com/3UR12/RegistroEstudiantesUIP/releases
-
-La rama `main` contiene el código fuente, la solución de Visual Studio, la documentación técnica y el perfil de publicación. Los archivos binarios y de evidencia se distribuyen mediante GitHub Releases para evitar incluir archivos grandes directamente en el historial Git.
-
-## Estado técnico
-
-La versión actual fue validada en Windows el 29 de septiembre de 2026.
-
-Se verificó:
-
-- registro válido;
-- validación de campos obligatorios;
-- rechazo de ID duplicado;
-- botón Limpiar;
-- contador de registros;
-- compilación Release;
-- publicación independiente para win-x64;
-- ejecución del archivo .exe fuera de Visual Studio.
-
-La rama main contiene el diseño visual final y el perfil de publicación utilizado para generar el ejecutable.
-
-## Arquitectura
-
-~~~text
-MainForm
-   │
-   ├── captura y presentación
-   │
-   ▼
-RegistroEstudiantesService
-   │
-   ├── validaciones
-   ├── control de duplicados
-   └── colección en memoria
-   │
-   ▼
-Estudiante / ResultadoRegistro
-~~~
-
-La lógica de validación se mantiene fuera del formulario para separar interfaz, reglas y modelo de datos.
-
 ## Estructura
 
-~~~text
+```text
 RegistroEstudiantesUIP/
-├── .github/
-│   └── workflows/
-│       └── build.yml
+├── src/RegistroEstudiantesUIP/
+│   ├── Models/
+│   ├── Services/
+│   ├── Properties/PublishProfiles/
+│   ├── MainForm.cs
+│   ├── MainForm.Designer.cs
+│   └── Program.cs
 ├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── DISTRIBUCION_Y_PROTECCION.md
-│   ├── EVIDENCIA_VIDEO.md
-│   ├── INSTALACION_VISUAL_STUDIO_2022.md
-│   ├── PRUEBAS.md
-│   └── PUBLICACION.md
-├── src/
-│   └── RegistroEstudiantesUIP/
-│       ├── Models/
-│       ├── Services/
-│       ├── Properties/
-│       │   └── PublishProfiles/
-│       │       └── FolderProfile.pubxml
-│       ├── MainForm.cs
-│       ├── MainForm.Designer.cs
-│       ├── Program.cs
-│       └── RegistroEstudiantesUIP.csproj
-├── .gitignore
 ├── RegistroEstudiantesUIP.sln
-├── README.md
 └── README.txt
-~~~
+```
 
-## Abrir el proyecto
+La interfaz se concentra en `MainForm`; las validaciones y el registro en memoria están en `RegistroEstudiantesService`; los datos se representan mediante `Estudiante` y `ResultadoRegistro`.
 
-1. Instalar Visual Studio 2022 con la carga de trabajo **Desarrollo de escritorio de .NET**.
-2. Clonar el repositorio.
-3. Abrir RegistroEstudiantesUIP.sln.
-4. Restaurar dependencias si Visual Studio lo solicita.
-5. Ejecutar con F5 para una prueba en Debug.
+## Ejecutar el proyecto
 
-La instalación completa está documentada en [docs/INSTALACION_VISUAL_STUDIO_2022.md](docs/INSTALACION_VISUAL_STUDIO_2022.md).
+Requisitos:
 
-## Compilar en Release
+- Visual Studio 2022
+- Carga de trabajo **Desarrollo de escritorio de .NET**
+- .NET 8 SDK
 
-En Visual Studio:
+```powershell
+git clone https://github.com/3UR12/RegistroEstudiantesUIP.git
+cd RegistroEstudiantesUIP
+```
 
-~~~text
-Configuración: Release
-Plataforma: Any CPU
-Compilar > Compilar solución
-~~~
+Abrir `RegistroEstudiantesUIP.sln` y ejecutar con **F5**.
 
-Desde terminal:
+## Compilar
 
-~~~powershell
+```powershell
 dotnet build RegistroEstudiantesUIP.sln -c Release
-~~~
+```
 
 ## Publicar para Windows x64
 
-El repositorio incluye FolderProfile.pubxml con la configuración utilizada:
-
-~~~text
-Configuración: Release
-Framework: net8.0-windows
-Modo de implementación: Independiente
-Runtime: win-x64
-Archivo único: Sí
-Trim: No
-ReadyToRun: No
-Símbolos de depuración: No
-~~~
-
-Desde terminal:
-
-~~~powershell
+```powershell
 dotnet publish src/RegistroEstudiantesUIP/RegistroEstudiantesUIP.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishTrimmed=false -p:PublishReadyToRun=false
-~~~
+```
 
-La guía paso a paso está en [docs/PUBLICACION.md](docs/PUBLICACION.md).
+Configuración del perfil `FolderProfile.pubxml`:
 
-## Código fuente y distribución
+| Opción | Valor |
+|---|---|
+| Configuración | Release |
+| Framework | net8.0-windows |
+| Runtime | win-x64 |
+| Implementación | Self-contained |
+| Archivo único | Sí |
+| Trim | No |
+| ReadyToRun | No |
 
-El repositorio se mantiene privado para restringir el acceso directo a los archivos fuente.
+## Entrega
 
-Para el ejecutable distribuido se eliminan símbolos de depuración y se utiliza publicación Release en archivo único, pero una aplicación .NET no puede considerarse imposible de descompilar.
+La versión final está disponible en:
 
-Detalles: [docs/DISTRIBUCION_Y_PROTECCION.md](docs/DISTRIBUCION_Y_PROTECCION.md).
+**[RegistroEstudiantesUIP v1.0.0](https://github.com/3UR12/RegistroEstudiantesUIP/releases/tag/v1.0.0)**
+
+La Release contiene el video de evidencia, el ejecutable de Windows y la presentación final.
+
+## Documentación
+
+- [Arquitectura](docs/ARCHITECTURE.md)
+- [Instalación de Visual Studio](docs/INSTALACION_VISUAL_STUDIO_2022.md)
+- [Publicación](docs/PUBLICACION.md)
+- [Pruebas](docs/PRUEBAS.md)
+- [Distribución](docs/DISTRIBUCION_Y_PROTECCION.md)

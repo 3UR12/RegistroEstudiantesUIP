@@ -1,158 +1,93 @@
-# Instalación y configuración de Visual Studio 2022
+# Visual Studio 2022
 
-## Descarga
+## Requisitos
 
-Visual Studio 2022 Community puede descargarse desde el instalador oficial de Microsoft:
+- Windows
+- Visual Studio 2022
+- Carga de trabajo **Desarrollo de escritorio de .NET**
+- .NET 8 SDK
 
-- Instalador directo de Visual Studio 2022 Community: https://aka.ms/vs/17/release/vs_community.exe
-- Página oficial de Visual Studio: https://visualstudio.microsoft.com/downloads/
-- Descarga oficial de .NET 8: https://dotnet.microsoft.com/download/dotnet/8.0
+Enlaces oficiales:
 
-El proyecto utiliza Visual Studio 2022, .NET 8 y Windows Forms.
+- Visual Studio: https://visualstudio.microsoft.com/downloads/
+- .NET 8: https://dotnet.microsoft.com/download/dotnet/8.0
 
-## Instalación
+## Comprobar .NET
 
-Ejecutar vs_community.exe.
-
-En **Cargas de trabajo**, seleccionar:
-
-~~~text
-Desarrollo de escritorio de .NET
-~~~
-
-En los componentes de instalación debe estar disponible el SDK de .NET 8. Si no aparece instalado después de finalizar Visual Studio, instalar .NET 8 SDK desde el enlace oficial indicado arriba.
-
-## Comprobación de .NET
-
-Abrir PowerShell o Terminal y ejecutar:
-
-~~~powershell
+```powershell
 dotnet --version
 dotnet --list-sdks
-~~~
+```
 
-Debe aparecer una versión 8.0.x entre los SDK instalados.
+Debe aparecer un SDK 8.0.x.
 
 ## Obtener el proyecto
 
-Clonar:
-
-~~~powershell
+```powershell
 git clone https://github.com/3UR12/RegistroEstudiantesUIP.git
 cd RegistroEstudiantesUIP
-~~~
-
-También puede descargarse el repositorio como ZIP desde GitHub.
-
-## Abrir la solución
+```
 
 Abrir:
 
-~~~text
+```text
 RegistroEstudiantesUIP.sln
-~~~
+```
 
-Visual Studio debe mostrar una solución con un proyecto:
+## Ejecutar
 
-~~~text
-RegistroEstudiantesUIP
-├── Dependencias
-├── Models
-├── Properties
-├── Services
-├── MainForm.cs
-└── Program.cs
-~~~
+Seleccionar:
 
-Si Visual Studio muestra una restauración de proyecto, esperar a que finalice antes de compilar.
-
-## Ejecutar en Debug
-
-En la barra superior seleccionar:
-
-~~~text
+```text
 Debug | Any CPU
-~~~
+```
 
-Presionar F5.
+Presionar **F5**.
 
-La aplicación debe abrir la ventana **Registro de estudiantes - Compiladores UIP**.
+Prueba rápida:
 
-Prueba mínima:
-
-~~~text
+```text
 ID: 1001
 Nombre: Ana Pérez
 Carrera: Ingeniería en Sistemas Computacionales
-~~~
+```
 
 Al presionar **Agregar**, el registro debe aparecer en la tabla.
 
-## Compilar en Release
+## Compilar
 
-Detener la depuración y cambiar Debug por Release. Mantener Any CPU.
+Seleccionar:
 
-Luego ejecutar:
+```text
+Release | Any CPU
+```
 
-~~~text
+Luego:
+
+```text
 Compilar > Compilar solución
-~~~
+```
 
-Atajo:
+Atajo: `Ctrl + Shift + B`.
 
-~~~text
-Ctrl + Shift + B
-~~~
+## Publicar
 
-La ventana **Salida** debe finalizar sin errores.
+Usar el perfil:
 
-No es necesario iniciar depuración con F5 en Release para generar el ejecutable final.
+```text
+src/RegistroEstudiantesUIP/Properties/PublishProfiles/FolderProfile.pubxml
+```
 
-## Publicación
+Salida:
 
-La publicación final se realiza con el perfil incluido en:
+```text
+src/RegistroEstudiantesUIP/bin/Release/net8.0-windows/publish/win-x64/
+```
 
-~~~text
-src\RegistroEstudiantesUIP\Properties\PublishProfiles\FolderProfile.pubxml
-~~~
+Ejecutable:
 
-Configuración:
-
-~~~text
-Configuración: Release | Any CPU
-Marco de destino: net8.0-windows
-Modo de implementación: Independiente
-Entorno de ejecución: win-x64
-Archivo único: activado
-Trim: desactivado
-ReadyToRun: desactivado
-Símbolos de depuración: desactivados
-~~~
-
-Los pasos detallados están en docs/PUBLICACION.md.
-
-## Carpeta de salida
-
-La ruta configurada es:
-
-~~~text
-src\RegistroEstudiantesUIP\bin\Release\net8.0-windows\publish\win-x64\
-~~~
-
-El archivo principal es:
-
-~~~text
+```text
 RegistroEstudiantesUIP.exe
-~~~
+```
 
-## Validación final
-
-Cerrar Visual Studio y ejecutar el .exe desde el Explorador de archivos.
-
-Validar al menos:
-
-1. registro válido;
-2. campo obligatorio vacío;
-3. ID duplicado.
-
-La ejecución desde la carpeta publicada confirma que la aplicación funciona fuera del entorno de desarrollo.
+Para la validación final, ejecutar el EXE directamente desde la carpeta publicada.

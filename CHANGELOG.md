@@ -1,35 +1,34 @@
 # Historial de cambios
 
-## 2026-09-29
+## v1.0.0 — 29 de septiembre de 2026
 
-### Interfaz
+### Aplicación
 
-- Se reorganizó la ventana principal.
-- Se agregó encabezado visual.
-- Se unificaron tipografía, espaciado y botones.
-- Se ajustó el estilo del DataGridView.
-- Se agregó contador de registros visibles.
-- Se mantuvieron las validaciones y el flujo funcional existentes.
+- Registro de estudiantes por ID, nombre y carrera.
+- Validación de campos obligatorios.
+- Validación de ID numérico y mayor que cero.
+- Control de IDs duplicados.
+- DataGridView para visualizar registros.
+- Contador de registros y botón Limpiar.
+- Interfaz final con distribución y estilos unificados.
+
+### Código
+
+- Separación entre interfaz, lógica de registro y modelos.
+- Validaciones concentradas en `RegistroEstudiantesService`.
+- Proyecto configurado para .NET 8 y Windows Forms.
 
 ### Compilación y publicación
 
-- Se agregó configuración Release sin símbolos de depuración.
-- Se versionó FolderProfile.pubxml.
-- El perfil utiliza net8.0-windows, win-x64, modo independiente y archivo único.
-- Trim y ReadyToRun permanecen desactivados.
-- GitHub Actions utiliza la misma configuración base de publicación.
+- Compilación Release.
+- Publicación self-contained para `win-x64`.
+- Archivo único habilitado.
+- Símbolos de depuración deshabilitados.
+- Perfil `FolderProfile.pubxml` incluido en el proyecto.
 
-### Documentación
+### Entrega
 
-- Se amplió la instalación de Visual Studio 2022.
-- Se documentó la configuración exacta de publicación.
-- Se documentaron las limitaciones de protección de código en aplicaciones .NET.
-- Se actualizaron las pruebas y la arquitectura.
-
-### Validación final
-
-- Se verificó la interfaz revisada en Debug.
-- Se verificaron registro, validaciones, contador y limpieza del formulario.
-- Se compiló en Release.
-- Se publicó para win-x64.
-- Se ejecutó la publicación fuera de Visual Studio.
+- Ejecutable probado fuera de Visual Studio.
+- Video de evidencia.
+- Presentación final.
+- Release `v1.0.0`.

@@ -1,63 +1,38 @@
-# Plan de pruebas
+# Pruebas
 
 ## Casos funcionales
 
-| Caso | Entrada | Resultado esperado |
+| Caso | Entrada | Resultado |
 |---|---|---|
-| Registro válido | 1001 / Ana Pérez / Ingeniería en Sistemas Computacionales | Se agrega una fila al DataGridView y aumenta el contador |
-| Campo vacío | Nombre vacío | Se rechaza el registro |
-| ID no numérico | abc | Se rechaza el registro |
-| ID cero o negativo | 0 o -1 | Se rechaza el registro |
-| Nombre corto | Ab | Se rechaza el registro |
-| ID duplicado | Registrar 1001 dos veces | El segundo registro se rechaza |
-| Limpiar | Datos escritos + botón Limpiar | Los campos vuelven a su estado inicial |
+| Registro válido | 1001 / Ana Pérez / Ingeniería en Sistemas Computacionales | Registro agregado y contador actualizado |
+| Campo vacío | Nombre vacío | Registro rechazado |
+| ID no numérico | abc | Registro rechazado |
+| ID cero o negativo | 0 / -1 | Registro rechazado |
+| Nombre corto | Ab | Registro rechazado |
+| ID duplicado | 1001 registrado dos veces | Segundo registro rechazado |
+| Limpiar | Datos escritos | Campos restablecidos |
 
 ## Compilación
 
-Configuración:
-
-~~~text
+```text
 Release | Any CPU
-~~~
+```
 
-Procedimiento:
-
-1. Ejecutar **Compilar > Compilar solución**.
-2. Confirmar que la salida no reporte errores.
+Resultado: compilación completada sin errores.
 
 ## Publicación
 
-Configuración:
+```text
+Framework: net8.0-windows
+Runtime: win-x64
+Modo: self-contained
+Archivo único: sí
+Trim: no
+ReadyToRun: no
+```
 
-~~~text
-net8.0-windows
-win-x64
-Independiente
-Archivo único
-Trim desactivado
-ReadyToRun desactivado
-~~~
+Resultado: `RegistroEstudiantesUIP.exe` generado y ejecutado fuera de Visual Studio.
 
-Procedimiento:
+## Versión comprobada
 
-1. Publicar con FolderProfile.
-2. Cerrar Visual Studio.
-3. Ejecutar RegistroEstudiantesUIP.exe.
-4. Repetir un caso válido y al menos un caso inválido.
-
-## Validación realizada el 29-09-2026
-
-La versión actual fue verificada en Windows con el diseño final.
-
-Resultados confirmados:
-
-- registro válido;
-- actualización del contador de registros;
-- validación de campo vacío;
-- rechazo de ID duplicado;
-- botón Limpiar;
-- compilación Release sin errores;
-- publicación win-x64 con FolderProfile;
-- ejecución del .exe fuera de Visual Studio.
-
-Cualquier modificación posterior al código requiere repetir la compilación, publicación y validación del ejecutable.
+`v1.0.0` — 29 de septiembre de 2026.

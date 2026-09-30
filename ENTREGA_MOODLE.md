@@ -1,52 +1,27 @@
-# Entrega académica - RegistroEstudiantesUIP
+# Entrega — RegistroEstudiantesUIP
 
-## Estudiante
+**Estudiante:** Euris J. Rodríguez V.  
+**Asignatura:** Compiladores  
+**Universidad:** Universidad Interamericana de Panamá  
+**Tecnología:** C# · Windows Forms · .NET 8 · Visual Studio 2022
 
-Euris J. Rodríguez V.
+## Enlaces
 
-## Asignatura
+| Recurso | Acceso |
+|---|---|
+| Repositorio | https://github.com/3UR12/RegistroEstudiantesUIP |
+| Release v1.0.0 | https://github.com/3UR12/RegistroEstudiantesUIP/releases/tag/v1.0.0 |
 
-Compiladores - Universidad Interamericana de Panamá
+## Release v1.0.0
+
+Incluye:
+
+- video de evidencia en MP4;
+- `RegistroEstudiantesUIP.exe`;
+- presentación final en PowerPoint.
 
 ## Proyecto
 
-RegistroEstudiantesUIP - WinForms, C#, .NET 8 y Visual Studio 2022.
+La rama `main` contiene el código fuente, la solución de Visual Studio, el perfil de publicación y la documentación técnica.
 
-## Acceso al proyecto
-
-Repositorio:
-
-https://github.com/3UR12/RegistroEstudiantesUIP
-
-Archivos de entrega de mayor tamaño:
-
-https://github.com/3UR12/RegistroEstudiantesUIP/releases
-
-## Contenido del repositorio
-
-- Código fuente C#.
-- Solución `RegistroEstudiantesUIP.sln`.
-- Proyecto WinForms para .NET 8.
-- Documentación de arquitectura, pruebas, instalación y publicación.
-- Perfil de publicación `FolderProfile.pubxml`.
-- Flujo de compilación automatizado para Windows.
-
-## Archivos que deben adjuntarse a la versión de GitHub
-
-- Video de evidencia.
-- `RegistroEstudiantesUIP.exe`.
-- Presentación final en PowerPoint.
-
-## Configuración de publicación
-
-- Configuración: Release.
-- Framework: `net8.0-windows`.
-- Runtime: `win-x64`.
-- Modo: independiente / self-contained.
-- Archivo único: activado.
-- Trim: desactivado.
-- ReadyToRun: desactivado.
-
-## Ejecución
-
-El ejecutable final se abre directamente desde la carpeta de publicación. El proyecto también puede abrirse desde `RegistroEstudiantesUIP.sln` utilizando Visual Studio 2022 con la carga de trabajo Desarrollo de escritorio de .NET.
+El ejecutable corresponde a una publicación **Release**, **win-x64**, **self-contained** y de **archivo único**.

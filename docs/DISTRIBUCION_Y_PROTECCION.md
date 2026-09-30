@@ -1,31 +1,16 @@
-# Distribución y protección del código
+# Distribución
 
-## Repositorio
+## Código fuente
 
-La visibilidad del repositorio determina si otras personas pueden consultar el código fuente.
+El repositorio se mantiene privado. El acceso al código fuente depende de los permisos asignados en GitHub.
 
-Si el repositorio es público, los archivos .cs, el proyecto y la documentación son visibles. Ninguna configuración de compilación puede ocultar un código que ya está publicado en GitHub.
+Los archivos generados por compilación no se guardan en el historial del repositorio. `.gitignore` excluye `bin/`, `obj/`, `publish/`, símbolos de depuración y archivos temporales.
 
-Para restringir el acceso:
+## Ejecutable
 
-~~~text
-GitHub
-> Settings
-> General
-> Danger Zone
-> Change repository visibility
-> Private
-~~~
+La versión distribuida utiliza:
 
-Después pueden agregarse colaboradores autorizados desde la configuración del repositorio.
-
-## Ejecutable .NET
-
-El proyecto se compila a .NET. Una aplicación .NET distribuida puede ser analizada o descompilada con herramientas especializadas. No existe una opción de Visual Studio que convierta un ejecutable .NET en código imposible de recuperar.
-
-La configuración del proyecto reduce información innecesaria de depuración en la distribución:
-
-~~~text
+```text
 Release
 Optimize = true
 DebugType = none
@@ -33,25 +18,12 @@ DebugSymbols = false
 PublishSingleFile = true
 SelfContained = true
 Runtime = win-x64
-~~~
+```
 
-Esto elimina símbolos de depuración y concentra la publicación, pero no debe considerarse una protección absoluta contra descompilación.
+El ejecutable se publica como archivo único y sin símbolos de depuración.
 
-## Archivos excluidos del repositorio
+## Alcance
 
-El archivo .gitignore excluye:
+Una aplicación .NET puede ser analizada con herramientas de ingeniería inversa. La configuración de Release reduce información de depuración, pero no convierte el binario en un formato imposible de descompilar.
 
-- .vs/;
-- bin/;
-- obj/;
-- carpetas publish/;
-- archivos .pdb;
-- archivos temporales y logs.
-
-Los binarios de compilación no forman parte del historial de código.
-
-## Obfuscación
-
-La obfuscación puede dificultar la lectura de código descompilado, pero introduce una etapa adicional en el proceso de publicación y debe probarse contra WinForms antes de utilizarse en la entrega.
-
-No se incorpora un obfuscador al flujo principal mientras el proyecto académico esté en validación final. La medida efectiva para impedir que terceros consulten el código original en GitHub es mantener el repositorio privado.
+La entrega no utiliza obfuscación.
