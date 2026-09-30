@@ -25,3 +25,11 @@
 - Se documentó la configuración exacta de publicación.
 - Se documentaron las limitaciones de protección de código en aplicaciones .NET.
 - Se actualizaron las pruebas y la arquitectura.
+
+### Validación final
+
+- Se verificó la interfaz revisada en Debug.
+- Se verificaron registro, validaciones, contador y limpieza del formulario.
+- Se compiló en Release.
+- Se publicó para win-x64.
+- Se ejecutó la publicación fuera de Visual Studio.
