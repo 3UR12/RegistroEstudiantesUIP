@@ -47,13 +47,17 @@ Procedimiento:
 
 ## Validación realizada el 29-09-2026
 
-Antes de la revisión visual posterior se verificó en Windows:
+La versión actual fue verificada en Windows con el diseño final.
+
+Resultados confirmados:
 
 - registro válido;
+- actualización del contador de registros;
 - validación de campo vacío;
 - rechazo de ID duplicado;
+- botón Limpiar;
 - compilación Release sin errores;
-- publicación win-x64;
+- publicación win-x64 con FolderProfile;
 - ejecución del .exe fuera de Visual Studio.
 
-Después de cualquier cambio de interfaz o código debe regenerarse la publicación y repetirse la validación del ejecutable final.
+Cualquier modificación posterior al código requiere repetir la compilación, publicación y validación del ejecutable.
