@@ -27,9 +27,20 @@ Los datos se mantienen únicamente en memoria. No se utiliza base de datos.
 
 ## Estado técnico
 
-El flujo funcional, la compilación Release, la publicación win-x64 y la ejecución del archivo .exe fuera de Visual Studio fueron verificados en Windows el 29 de septiembre de 2026.
+La versión actual fue validada en Windows el 29 de septiembre de 2026.
 
-La rama main incluye posteriormente una revisión visual de la interfaz y una configuración de publicación reproducible. El ejecutable final debe regenerarse después de actualizar el repositorio.
+Se verificó:
+
+- registro válido;
+- validación de campos obligatorios;
+- rechazo de ID duplicado;
+- botón Limpiar;
+- contador de registros;
+- compilación Release;
+- publicación independiente para win-x64;
+- ejecución del archivo .exe fuera de Visual Studio.
+
+La rama main contiene el diseño visual final y el perfil de publicación utilizado para generar el ejecutable.
 
 ## Arquitectura
 
@@ -133,8 +144,8 @@ La guía paso a paso está en [docs/PUBLICACION.md](docs/PUBLICACION.md).
 
 ## Código fuente y distribución
 
-Un repositorio público permite consultar directamente el código fuente. La publicación en Release no cambia esa condición.
+El repositorio se mantiene privado para restringir el acceso directo a los archivos fuente.
 
-Para limitar el acceso al código del repositorio debe utilizarse un repositorio privado. Para el ejecutable distribuido se eliminan símbolos de depuración y se utiliza publicación Release en archivo único, pero una aplicación .NET no puede considerarse imposible de descompilar.
+Para el ejecutable distribuido se eliminan símbolos de depuración y se utiliza publicación Release en archivo único, pero una aplicación .NET no puede considerarse imposible de descompilar.
 
 Detalles: [docs/DISTRIBUCION_Y_PROTECCION.md](docs/DISTRIBUCION_Y_PROTECCION.md).
