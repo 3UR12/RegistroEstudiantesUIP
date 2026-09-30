@@ -1,3 +1,5 @@
+#nullable enable
+
 namespace RegistroEstudiantesUIP;
 
 partial class MainForm
