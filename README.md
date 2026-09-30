@@ -25,6 +25,18 @@ Los datos se mantienen únicamente en memoria. No se utiliza base de datos.
 - Visual Studio 2022
 - Windows x64
 
+## Entrega académica
+
+Repositorio del proyecto:
+
+https://github.com/3UR12/RegistroEstudiantesUIP
+
+Archivos de entrega de mayor tamaño (video, ejecutable y presentación):
+
+https://github.com/3UR12/RegistroEstudiantesUIP/releases
+
+La rama `main` contiene el código fuente, la solución de Visual Studio, la documentación técnica y el perfil de publicación. Los archivos binarios y de evidencia se distribuyen mediante GitHub Releases para evitar incluir archivos grandes directamente en el historial Git.
+
 ## Estado técnico
 
 La versión actual fue validada en Windows el 29 de septiembre de 2026.
