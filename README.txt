@@ -1,8 +1,10 @@
 REGISTRO DE ESTUDIANTES - COMPILADORES UIP
 ===========================================
 
-Autor: Euris J. Rodríguez V.
-Versión: v1.0.0
+Integrantes:
+- Euris J. Rodríguez V.
+- Daniela Insturaín
+- Aaron Fechrenback
 
 TECNOLOGÍA
 ----------
@@ -11,6 +13,20 @@ Windows Forms
 .NET 8
 Visual Studio 2022
 Windows x64
+
+FUNCIONES
+---------
+- Crear registros de estudiantes.
+- Consultar registros en la tabla.
+- Actualizar el registro seleccionado.
+- Eliminar registros con confirmación.
+- Validar campos, ID y nombre.
+
+PRIVACIDAD
+----------
+Los datos se mantienen solo en memoria durante la sesión.
+No se guardan en archivos, bases de datos ni servicios externos.
+Se recomienda utilizar información de práctica y evitar datos personales reales.
 
 REQUISITOS
 ----------
@@ -50,6 +66,6 @@ src\RegistroEstudiantesUIP\bin\Release\net8.0-windows\publish\win-x64\
 Ejecutable:
 RegistroEstudiantesUIP.exe
 
-RELEASE
--------
+RELEASE INICIAL
+---------------
 https://github.com/3UR12/RegistroEstudiantesUIP/releases/tag/v1.0.0
