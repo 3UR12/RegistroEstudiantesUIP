@@ -27,6 +27,7 @@ partial class MainForm
         lblSubtitulo = new Label();
         lblTitulo = new Label();
         grpRegistro = new GroupBox();
+        lblPrivacidad = new Label();
         cmbCarrera = new ComboBox();
         lblCarrera = new Label();
         txtNombre = new TextBox();
@@ -34,6 +35,8 @@ partial class MainForm
         txtId = new TextBox();
         lblId = new Label();
         btnLimpiar = new Button();
+        btnEliminar = new Button();
+        btnActualizar = new Button();
         btnAgregar = new Button();
         lblSeccionTabla = new Label();
         lblContador = new Label();
@@ -77,6 +80,7 @@ partial class MainForm
 
         grpRegistro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         grpRegistro.BackColor = Color.White;
+        grpRegistro.Controls.Add(lblPrivacidad);
         grpRegistro.Controls.Add(cmbCarrera);
         grpRegistro.Controls.Add(lblCarrera);
         grpRegistro.Controls.Add(txtNombre);
@@ -84,15 +88,25 @@ partial class MainForm
         grpRegistro.Controls.Add(txtId);
         grpRegistro.Controls.Add(lblId);
         grpRegistro.Controls.Add(btnLimpiar);
+        grpRegistro.Controls.Add(btnEliminar);
+        grpRegistro.Controls.Add(btnActualizar);
         grpRegistro.Controls.Add(btnAgregar);
         grpRegistro.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
         grpRegistro.ForeColor = Color.FromArgb(37, 47, 61);
         grpRegistro.Location = new Point(32, 119);
         grpRegistro.Name = "grpRegistro";
-        grpRegistro.Size = new Size(920, 164);
+        grpRegistro.Size = new Size(920, 206);
         grpRegistro.TabIndex = 1;
         grpRegistro.TabStop = false;
         grpRegistro.Text = "Nuevo registro";
+
+        lblPrivacidad.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+        lblPrivacidad.ForeColor = Color.FromArgb(92, 103, 117);
+        lblPrivacidad.Location = new Point(28, 157);
+        lblPrivacidad.Name = "lblPrivacidad";
+        lblPrivacidad.Size = new Size(860, 32);
+        lblPrivacidad.TabIndex = 10;
+        lblPrivacidad.Text = "Privacidad: los datos son temporales, no se guardan ni se envían. Utilice información de práctica y evite datos personales reales.";
 
         cmbCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
         cmbCarrera.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -143,19 +157,6 @@ partial class MainForm
         lblId.TabIndex = 0;
         lblId.Text = "ID estudiante";
 
-        btnLimpiar.BackColor = Color.White;
-        btnLimpiar.FlatAppearance.BorderColor = Color.FromArgb(175, 184, 196);
-        btnLimpiar.FlatStyle = FlatStyle.Flat;
-        btnLimpiar.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
-        btnLimpiar.ForeColor = Color.FromArgb(47, 59, 74);
-        btnLimpiar.Location = new Point(194, 105);
-        btnLimpiar.Name = "btnLimpiar";
-        btnLimpiar.Size = new Size(150, 38);
-        btnLimpiar.TabIndex = 7;
-        btnLimpiar.Text = "Limpiar";
-        btnLimpiar.UseVisualStyleBackColor = false;
-        btnLimpiar.Click += btnLimpiar_Click;
-
         btnAgregar.BackColor = Color.FromArgb(31, 78, 121);
         btnAgregar.FlatAppearance.BorderSize = 0;
         btnAgregar.FlatStyle = FlatStyle.Flat;
@@ -163,16 +164,55 @@ partial class MainForm
         btnAgregar.ForeColor = Color.White;
         btnAgregar.Location = new Point(28, 105);
         btnAgregar.Name = "btnAgregar";
-        btnAgregar.Size = new Size(150, 38);
+        btnAgregar.Size = new Size(140, 38);
         btnAgregar.TabIndex = 6;
         btnAgregar.Text = "Agregar";
         btnAgregar.UseVisualStyleBackColor = false;
         btnAgregar.Click += btnAgregar_Click;
 
+        btnActualizar.BackColor = Color.FromArgb(52, 98, 68);
+        btnActualizar.FlatAppearance.BorderSize = 0;
+        btnActualizar.FlatStyle = FlatStyle.Flat;
+        btnActualizar.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+        btnActualizar.ForeColor = Color.White;
+        btnActualizar.Location = new Point(178, 105);
+        btnActualizar.Name = "btnActualizar";
+        btnActualizar.Size = new Size(140, 38);
+        btnActualizar.TabIndex = 7;
+        btnActualizar.Text = "Actualizar";
+        btnActualizar.UseVisualStyleBackColor = false;
+        btnActualizar.Click += btnActualizar_Click;
+
+        btnEliminar.BackColor = Color.FromArgb(154, 53, 53);
+        btnEliminar.FlatAppearance.BorderSize = 0;
+        btnEliminar.FlatStyle = FlatStyle.Flat;
+        btnEliminar.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+        btnEliminar.ForeColor = Color.White;
+        btnEliminar.Location = new Point(328, 105);
+        btnEliminar.Name = "btnEliminar";
+        btnEliminar.Size = new Size(140, 38);
+        btnEliminar.TabIndex = 8;
+        btnEliminar.Text = "Eliminar";
+        btnEliminar.UseVisualStyleBackColor = false;
+        btnEliminar.Click += btnEliminar_Click;
+
+        btnLimpiar.BackColor = Color.White;
+        btnLimpiar.FlatAppearance.BorderColor = Color.FromArgb(175, 184, 196);
+        btnLimpiar.FlatStyle = FlatStyle.Flat;
+        btnLimpiar.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+        btnLimpiar.ForeColor = Color.FromArgb(47, 59, 74);
+        btnLimpiar.Location = new Point(478, 105);
+        btnLimpiar.Name = "btnLimpiar";
+        btnLimpiar.Size = new Size(140, 38);
+        btnLimpiar.TabIndex = 9;
+        btnLimpiar.Text = "Limpiar";
+        btnLimpiar.UseVisualStyleBackColor = false;
+        btnLimpiar.Click += btnLimpiar_Click;
+
         lblSeccionTabla.AutoSize = true;
         lblSeccionTabla.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
         lblSeccionTabla.ForeColor = Color.FromArgb(37, 47, 61);
-        lblSeccionTabla.Location = new Point(32, 310);
+        lblSeccionTabla.Location = new Point(32, 350);
         lblSeccionTabla.Name = "lblSeccionTabla";
         lblSeccionTabla.Size = new Size(169, 20);
         lblSeccionTabla.TabIndex = 2;
@@ -181,7 +221,7 @@ partial class MainForm
         lblContador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblContador.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
         lblContador.ForeColor = Color.FromArgb(92, 103, 117);
-        lblContador.Location = new Point(792, 310);
+        lblContador.Location = new Point(792, 350);
         lblContador.Name = "lblContador";
         lblContador.Size = new Size(160, 20);
         lblContador.TabIndex = 3;
@@ -212,7 +252,7 @@ partial class MainForm
         dgvEstudiantes.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colCarrera });
         dgvEstudiantes.EnableHeadersVisualStyles = false;
         dgvEstudiantes.GridColor = Color.FromArgb(226, 231, 237);
-        dgvEstudiantes.Location = new Point(32, 338);
+        dgvEstudiantes.Location = new Point(32, 378);
         dgvEstudiantes.MultiSelect = false;
         dgvEstudiantes.Name = "dgvEstudiantes";
         dgvEstudiantes.ReadOnly = true;
@@ -227,6 +267,7 @@ partial class MainForm
         dgvEstudiantes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         dgvEstudiantes.Size = new Size(920, 315);
         dgvEstudiantes.TabIndex = 4;
+        dgvEstudiantes.CellClick += dgvEstudiantes_CellClick;
 
         colId.FillWeight = 35F;
         colId.HeaderText = "ID";
@@ -246,7 +287,7 @@ partial class MainForm
         lblEstado.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblEstado.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
         lblEstado.ForeColor = Color.FromArgb(92, 103, 117);
-        lblEstado.Location = new Point(32, 670);
+        lblEstado.Location = new Point(32, 710);
         lblEstado.Name = "lblEstado";
         lblEstado.Size = new Size(920, 24);
         lblEstado.TabIndex = 5;
@@ -256,7 +297,7 @@ partial class MainForm
         lblPie.AutoSize = true;
         lblPie.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
         lblPie.ForeColor = Color.FromArgb(112, 122, 135);
-        lblPie.Location = new Point(32, 720);
+        lblPie.Location = new Point(32, 756);
         lblPie.Name = "lblPie";
         lblPie.Size = new Size(274, 15);
         lblPie.TabIndex = 6;
@@ -266,7 +307,7 @@ partial class MainForm
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(244, 247, 250);
-        ClientSize = new Size(984, 760);
+        ClientSize = new Size(984, 790);
         Controls.Add(lblPie);
         Controls.Add(lblEstado);
         Controls.Add(dgvEstudiantes);
@@ -275,7 +316,7 @@ partial class MainForm
         Controls.Add(grpRegistro);
         Controls.Add(pnlHeader);
         Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-        MinimumSize = new Size(900, 700);
+        MinimumSize = new Size(900, 760);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Registro de estudiantes - Compiladores UIP";
@@ -301,7 +342,10 @@ partial class MainForm
     private ComboBox cmbCarrera;
     private Label lblCarrera;
     private Button btnAgregar;
+    private Button btnActualizar;
+    private Button btnEliminar;
     private Button btnLimpiar;
+    private Label lblPrivacidad;
     private Label lblSeccionTabla;
     private Label lblContador;
     private DataGridView dgvEstudiantes;
