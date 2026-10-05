@@ -1,5 +1,26 @@
 # Historial de cambios
 
+## Cambios posteriores a v1.0.0
+
+### Aplicación
+
+- Operaciones CRUD completas en memoria: crear, consultar, actualizar y eliminar registros.
+- Selección de filas para editar o eliminar estudiantes.
+- Confirmación antes de eliminar un registro.
+- Validaciones adicionales de longitud y caracteres del nombre.
+- Aviso visible de privacidad para utilizar datos de práctica.
+
+### Privacidad y seguridad
+
+- Los datos continúan almacenándose únicamente en memoria durante la sesión.
+- No se agregan archivos de datos, base de datos ni conexiones externas.
+- Se documenta que el repositorio es público y no debe contener información personal real.
+
+### Documentación
+
+- Integrantes actualizados: Euris J. Rodríguez V., Daniela Insturaín y Aaron Fechrenback.
+- Redacción ajustada a un tono grupal y neutral.
+
 ## v1.0.0 — 29 de septiembre de 2026
 
 ### Aplicación
